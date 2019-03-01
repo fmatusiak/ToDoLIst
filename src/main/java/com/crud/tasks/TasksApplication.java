@@ -12,7 +12,7 @@ public class TasksApplication{
         SpringApplication.run(TasksApplication.class, args);
     }
 
-  /*  @Override
+   /* @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder springApplicationBuilder){
         return springApplicationBuilder.sources(TasksApplication.class);
     }*/
