@@ -2,6 +2,7 @@ package com.crud.tasks;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 
 @SpringBootApplication
@@ -11,7 +12,7 @@ public class TasksApplication{
         SpringApplication.run(TasksApplication.class, args);
     }
 
-   /* @Override
+    /*@Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder springApplicationBuilder){
         return springApplicationBuilder.sources(TasksApplication.class);
     }*/
