@@ -32,6 +32,8 @@ public class SimpleEmailServiceTest {
         //When
         simpleEmailService.send(mail);
 
+
+
         //Then
         Mockito.verify(javaMailSender, Mockito.times(1)).send(simpleMailMessage);
     }
