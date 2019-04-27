@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 public class TrelloBoardDto {
 
     @JsonProperty("id")

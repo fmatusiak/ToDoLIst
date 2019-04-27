@@ -22,7 +22,7 @@ public class TrelloValidator {
         }
     }
 
-    public List<TrelloBoard> fetchTrelloBoards(final List<TrelloBoard> trelloBoards) {
+    public List<TrelloBoard> validateTrelloBoards(final List<TrelloBoard> trelloBoards) {
         LOGGER.info("Starting filtring boards ...");
         List<TrelloBoard> filteredTrelloBoards =
                 trelloBoards.stream()

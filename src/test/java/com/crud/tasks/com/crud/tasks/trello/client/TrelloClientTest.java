@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
@@ -39,14 +39,13 @@ public class TrelloClientTest {
         when(trelloConfig.getTrelloToken()).thenReturn("test");
     }
 
-
     @Test
     public void shouldFetchTrelloBoards() throws URISyntaxException {
         //Given
         TrelloBoardDto[] trelloBoards = new TrelloBoardDto[1];
         trelloBoards[0] = new TrelloBoardDto("test_id", "test_board", new ArrayList<>());
 
-        URI uri = new URI("http://test.com/members/filipmatusiak/boards?key=test&token=test&fields=name,id&lists=all");
+        URI uri = new URI("http://test.com/members/szymonstuszek/boards?key=test&token=test&fields=name,id&lists=all");
 
         when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(trelloBoards);
 
@@ -72,11 +71,14 @@ public class TrelloClientTest {
 
         URI uri = new URI("http://test.com/cards?key=test&token=test&name=Test%20task&desc=Test%20Description&pos=top&idList=test_id");
 
+
         CreatedTrelloCardDto createdTrelloCard = new CreatedTrelloCardDto(
                 "1",
                 "Test task",
                 "http://test.com"
         );
+
+        when(restTemplate.postForObject(uri, null, CreatedTrelloCardDto.class)).thenReturn(createdTrelloCard);
 
         //When
         CreatedTrelloCardDto newCard = trelloClient.createNewCard(trelloCardDto);
