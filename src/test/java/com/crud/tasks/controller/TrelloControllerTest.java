@@ -96,9 +96,9 @@ public class TrelloControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id",Matchers.is("323")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name",Matchers.is("Test")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.shortUrl",Matchers.is("http://test.com")));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is("323")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("Test")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.shortUrl", Matchers.is("http://test.com")));
     }
 
 }

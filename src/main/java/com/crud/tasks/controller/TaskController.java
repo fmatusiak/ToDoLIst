@@ -21,8 +21,8 @@ public class TaskController {
     private TaskMapper taskMapper;
 
     @RequestMapping(method = RequestMethod.POST, value = "createTask", consumes = APPLICATION_JSON_VALUE)
-    public void createTask(@RequestBody TaskDto taskDto) {
-        dbService.saveTask(taskMapper.mapToTask(taskDto));
+    public TaskDto createTask(@RequestBody TaskDto taskDto) {
+        return taskMapper.mapToTaskDto(dbService.saveTask(taskMapper.mapToTask(taskDto)));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getTasks")
@@ -30,8 +30,8 @@ public class TaskController {
         return taskMapper.mapToTaskDtoList(dbService.getAllTasks());
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTask")
-    public TaskDto getTask(@RequestParam Long taskId) throws TaskNotFoundException {
+    @RequestMapping(method = RequestMethod.GET, value = "getTask/{taskId}")
+    public TaskDto getTask(@PathVariable Long taskId) throws TaskNotFoundException {
         return taskMapper.mapToTaskDto(dbService.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 
@@ -40,8 +40,8 @@ public class TaskController {
         return taskMapper.mapToTaskDto(dbService.saveTask(taskMapper.mapToTask(taskDto)));
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
-    public void deleteTask(@RequestParam Long taskId) {
+    @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask/{taskId}")
+    public void deleteTask(@PathVariable Long taskId) {
         dbService.deleteTask(taskId);
     }
 }
