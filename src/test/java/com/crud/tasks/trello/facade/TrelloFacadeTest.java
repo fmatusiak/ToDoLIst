@@ -56,7 +56,7 @@ public class TrelloFacadeTest {
         when(trelloMapper.mapToBoardsDto(anyList())).thenReturn(new ArrayList<>());
         when(trelloValidator.validateTrelloBoards(mappedTrelloBoards)).thenReturn(new ArrayList<>());
 
-        //When
+        //Wh
         List<TrelloBoardDto> boardDtoList = trelloFacade.fetchTrelloBoards();
 
         //Then

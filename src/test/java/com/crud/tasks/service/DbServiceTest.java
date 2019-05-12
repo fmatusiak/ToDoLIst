@@ -10,10 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @Transactional
 @RunWith(SpringRunner.class)
