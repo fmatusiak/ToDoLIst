@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/task")
 public class TaskController {
@@ -20,27 +21,27 @@ public class TaskController {
     @Autowired
     private TaskMapper taskMapper;
 
-    @RequestMapping(method = RequestMethod.POST, value = "createTask", consumes = APPLICATION_JSON_VALUE)
+    @PostMapping(value = "createTask", consumes = APPLICATION_JSON_VALUE)
     public TaskDto createTask(@RequestBody TaskDto taskDto) {
         return taskMapper.mapToTaskDto(dbService.saveTask(taskMapper.mapToTask(taskDto)));
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTasks")
+    @GetMapping(value = "getTasks")
     public List<TaskDto> getTasks() {
         return taskMapper.mapToTaskDtoList(dbService.getAllTasks());
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTask/{taskId}")
+    @GetMapping(value = "getTask/{taskId}")
     public TaskDto getTask(@PathVariable Long taskId) throws TaskNotFoundException {
         return taskMapper.mapToTaskDto(dbService.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
+    @PutMapping(value = "updateTask")
     public TaskDto updateTask(@RequestBody TaskDto taskDto) {
         return taskMapper.mapToTaskDto(dbService.saveTask(taskMapper.mapToTask(taskDto)));
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask/{taskId}")
+    @DeleteMapping(value = "deleteTask/{taskId}")
     public void deleteTask(@PathVariable Long taskId) {
         dbService.deleteTask(taskId);
     }
