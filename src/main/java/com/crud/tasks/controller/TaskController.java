@@ -31,8 +31,8 @@ public class TaskController {
         return taskMapper.mapToTaskDtoList(dbService.getAllTasks());
     }
 
-    @GetMapping(value = "getTask/{taskId}")
-    public TaskDto getTask(@PathVariable Long taskId) throws TaskNotFoundException {
+    @GetMapping(value = "getTask")
+    public TaskDto getTask(@RequestParam Long taskId) throws TaskNotFoundException {
         return taskMapper.mapToTaskDto(dbService.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 
@@ -41,8 +41,8 @@ public class TaskController {
         return taskMapper.mapToTaskDto(dbService.saveTask(taskMapper.mapToTask(taskDto)));
     }
 
-    @DeleteMapping(value = "deleteTask/{taskId}")
-    public void deleteTask(@PathVariable Long taskId) {
+    @DeleteMapping(value = "deleteTask")
+    public void deleteTask(@RequestParam Long taskId) {
         dbService.deleteTask(taskId);
     }
 }
