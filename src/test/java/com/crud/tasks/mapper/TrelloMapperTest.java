@@ -1,7 +1,11 @@
 package com.crud.tasks.mapper;
 
-import com.crud.tasks.domain.*;
-import com.crud.tasks.service.TrelloService;
+import com.crud.tasks.domain.TrelloBoard;
+import com.crud.tasks.domain.TrelloCard;
+import com.crud.tasks.domain.TrelloList;
+import com.crud.tasks.domain.dto.TrelloBoardDto;
+import com.crud.tasks.domain.dto.TrelloCardDto;
+import com.crud.tasks.domain.dto.TrelloListDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
