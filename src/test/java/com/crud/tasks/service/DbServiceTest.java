@@ -1,7 +1,6 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Task;
-import com.crud.tasks.mapper.TaskMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,6 @@ public class DbServiceTest {
 
     @Autowired
     private DbService dbService;
-
-    private TaskMapper taskMapper;
 
     @Test
     public void testGetAllTasks() {

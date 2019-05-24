@@ -1,6 +1,6 @@
 package com.crud.tasks.service;
 
-import com.crud.tasks.domain.*;
+import com.crud.tasks.domain.TrelloBoard;
 import com.crud.tasks.mapper.TrelloMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,10 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
-
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @Transactional
 @RunWith(SpringRunner.class)
@@ -32,7 +31,7 @@ public class TrelloServiceTest {
         //When
         int sizeResult = trelloBoard.size();
         //Then
-        assertEquals(2,sizeResult);
+        assertEquals(3, sizeResult);
     }
     
 }
